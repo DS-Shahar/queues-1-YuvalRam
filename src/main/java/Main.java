@@ -89,4 +89,26 @@ public class L25_2 {
 		
 	}
 
+		public static <T> Queue<T> q3(Queue<T> q){
+		int c = 1;
+		q.insert(null);
+		while(q.head()!=null) {
+			T x = q.head();
+			q.insert(q.remove());
+			while(q.head()!=null) {
+				if(q.head()==x)
+					q.remove();
+				if(q.head()!=null)
+					q.insert(q.remove());
+			}
+			q.insert(q.remove());
+			for (int i = 0; i < c; i++) {
+				q.insert(q.remove());
+			}
+			c++;
+		}
+		q.remove();
+		return q;
+	}
+
 }
